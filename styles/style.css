@@ -13,11 +13,13 @@
 .page {
   display: flex;
   flex-direction: column;
+  align-items:center;
   gap: 102px;
+  padding: 100px clamp(0rem, -8.143rem + 34.742vi, 23.125rem) 100px;
   min-inline-size: 320px;
   min-block-size: 100dvb;
   inline-size: 100vw;
-  background-image: url('../images/background.png');
+  background-image: var(--background-image);
   background-attachment: fixed;
   background-size: cover;
   font-family: var(--main-font), sans-serif;
@@ -83,6 +85,38 @@
   object-fit: cover;
 }
 
+.sunset {
+  filter: saturate(1.7) blur(1px);
+}
+
+.knight {
+  filter: blur(0.5px);
+}
+
+.blackhole {
+  filter: grayscale(0.6);
+}
+
+.surreal {
+  filter: contrast(1.5) blur(0.8px);
+}
+
+.thething {
+  filter: contrast(0.7);
+}
+
+.house {
+  filter: grayscale(0.6);
+}
+
+.pink {
+  filter: saturate(1.2) blur(1px);
+}
+
+.shashlik {
+  filter: sepia(0.8);
+}
+
 .header__label {
   font-family: 'PressStart2P';
   position: absolute;
@@ -121,20 +155,297 @@
   display: flex;
   flex-direction: column;
   gap: 27px;
+  line-height: 1.1667;
 }
 
 .card__buttons {
   display: flex;
   align-self: end;
   align-items: center;
+  gap: 4px;
 }
 
 .card__like-button {
-  inline-size: 169px;
+  display: flex;
+  justify-content: center;
+  position:relative;
+  align-items: center;
+  inline-size: 130px;
   block-size: 38px;
+  text-transform: capitalize;
+  overflow: hidden;
+  border: 2px solid black;
+}
+
+.card__like-button:focus {
+  outline: none;
+  box-shadow: 2px 2px #000;
+  transition: box-shadow 0.3s ease;
+}
+
+.card__like-button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  background-color: black;
+}
+
+.card__like-button:hover::before {
+  transform: translate(0);
+  transition: transform 0.5s ease-in-out;
 }
 
 .card__icon-button {
-  inline-size: 38px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  block-size: 34px;
+  padding: 0;
+  background-color: white;
+  border: none;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid black;
+  transition: outline 0.3s ease;
+}
+
+.like-icon {
+  border: 2px solid transparent;
+  inline-size: 39px;
+  block-size: 36px;
+}
+
+.like-icon:focus {
+  outline: none;
+}
+
+.like-icon:focus-visible {
+  border: 2px solid black;
+  transition: border 0.3s ease;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.like-icon .core {
+  fill: transparent;
+  transition: fill 0.3s ease 0.03s;
+}
+
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s ease;
+}
+
+.like-icon:hover .core {
+  fill: var(--contour-color);
+  transition: fill 0.3s ease;
+}
+
+.like-icon:active .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s ease;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s ease 0.05s;
+}
+
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s ease 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s ease;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s ease 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s ease 0.06s;
+}
+
+.like-icon .contour {
+  fill: var(--contour-color);
+  transition: fill 0.1s linear;
+}
+
+@keyframes heart-scale-animation {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.25);
+  }
+}
+
+@keyframes sparks-opacity-animation {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.like-icon.is-liked {
+  animation: heart-scale-animation 0.3s ease-in 1;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks-opacity-animation 0.3s ease-in 0.3s 1;
+}
+
+.save-dialog-open-button {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 15px 19px;
+  gap: 8px;
+  border: 2px solid black;
+}
+
+.save-dialog-open-button:focus {
+  outline: none;
+  box-shadow: 2px 2px #000;
+  transition: box-shadow 0.3s ease;
+}
+
+.save-dialog-open-button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  background-color: black;
+}
+
+.save-dialog-open-button:hover::before {
+  transform: translate(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button__text {
+  position: relative;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 90%;
+  color: var(--button-text-color);
+  mix-blend-mode: difference;
+}
+
+.save-dialog-open-button-floppy {
+  display: inline-block;
+  inline-size: 21px;
+  block-size: 21px;
+  fill: var(--button-text-color);
+  mix-blend-mode: difference;
+}
+
+.save-dialog-floppy {
+  display: inline-block;
+  min-inline-size: 39px;
+  min-block-size: 39px;
+  max-inline-size: 39px;
+  max-block-size: 39px;
+}
+
+.save-dialog-open-text {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.save-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  max-inline-size: 357px;
+  padding: 30px;
+  gap: 30px;
+}
+
+.save-dialog[open]::backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.save-dialog-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.save-dialog-close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
   block-size: 38px;
+  border: 2px solid black;
+}
+
+.save-dialog-close-button:focus {
+  outline: none;
+  box-shadow: 2px 2px #000;
+  transition: box-shadow 0.3s ease;
+}
+
+.save-dialog-close-button::before {
+  content: '';
+  display: block;
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  background-color: black;
+}
+
+.save-dialog-close-button:hover::before {
+  transform: translate(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+@media (width <= 375.4px) {
+  .header {
+    --header-width: 100%;
+  }
+
+  .card {
+    --card-width: 100%;
+  }
+
+  .save-dialog-open-button {
+    flex-direction: column;
+  }
+
+  .save-dialog-open-button-floppy {
+    inline-size: 28px;
+    block-size: 28px;
+  }
 }
