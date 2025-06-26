@@ -85,35 +85,35 @@
   object-fit: cover;
 }
 
-.sunset {
+.shashlik_saturate_blur {
   filter: saturate(1.7) blur(1px);
 }
 
-.knight {
+.shashlik_blur {
   filter: blur(0.5px);
 }
 
-.blackhole {
+.shashlik_grayscale {
   filter: grayscale(0.6);
 }
 
-.surreal {
+.shashlik_contrast_blur {
   filter: contrast(1.5) blur(0.8px);
 }
 
-.thething {
+.shashlik_contrast {
   filter: contrast(0.7);
 }
 
-.house {
-  filter: grayscale(0.6);
+.shashlik_grayscale_blur {
+  filter: grayscale(0.6) blur(0.6px);
 }
 
-.pink {
-  filter: saturate(1.2) blur(1px);
+.shashlik_saturate {
+  filter: saturate(1.2);
 }
 
-.shashlik {
+.shashlik_sepia {
   filter: sepia(0.8);
 }
 
